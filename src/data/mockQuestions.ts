@@ -1,0 +1,187 @@
+import { Question } from '../types/question';
+
+export const MOCK_QUESTIONS: Question[] = [
+  {
+    id: 'ib-math-aa-calc-001',
+    code: 'M24-VAR/MAA/HP1/TZ2/Q09',
+    subject: 'Math AA',
+    level: 'HL',
+    topic: 'Topic 5: Calculus',
+    subtopic: '5.14 Integration by Substitution & Parts',
+    paper: 'Paper 1',
+    difficulty: 'Hard',
+    year: 2024,
+    session: 'May',
+    calculatorAllowed: false,
+    isAiRecommended: true,
+    recommendationReason: '최신 3개년 HL Paper 1 빈출 1순위 유형 (부분적분 + 삼각치환 연계)',
+    variantFrom: 'M23/5/MATHX/HP1/TZ2/Q8 (변형 문항)',
+    totalMarks: 7,
+    context: 'Let $f(x) = x^2 \\cos(2x)$ for $x \\in \\mathbb{R}$.',
+    parts: [
+      {
+        partLabel: '(a)',
+        prompt: 'Find $\\int x \\sin(2x) \\, dx$.',
+        marks: 3,
+        markscheme: {
+          steps: [
+            { code: 'M1', description: 'Attempting integration by parts: $u = x, v\' = \\sin(2x) \\implies u\' = 1, v = -\\frac{1}{2}\\cos(2x)$', marks: 1 },
+            { code: 'A1', description: '$-\\frac{1}{2}x \\cos(2x) - \\int -\\frac{1}{2}\\cos(2x) \\, dx$', marks: 1 },
+            { code: 'A1', description: '$-\\frac{1}{2}x \\cos(2x) + \\frac{1}{4}\\sin(2x) + C$', marks: 1 },
+          ],
+          totalMarks: 3,
+          notes: 'Award full marks for equivalent expressions. Constant $C$ omission penalize max 1 mark.',
+        },
+      },
+      {
+        partLabel: '(b)',
+        prompt: 'Hence or otherwise, find the exact value of $\\int_{0}^{\\frac{\\pi}{4}} x^2 \\cos(2x) \\, dx$.',
+        marks: 4,
+        markscheme: {
+          steps: [
+            { code: 'M1', description: 'Integration by parts with $u = x^2, v\' = \\cos(2x) \\implies u\' = 2x, v = \\frac{1}{2}\\sin(2x)$', marks: 1 },
+            { code: 'A1', description: '$\\left[ \\frac{1}{2}x^2 \\sin(2x) \\right]_0^{\\frac{\\pi}{4}} - \\int_0^{\\frac{\\pi}{4}} x \\sin(2x) \\, dx$', marks: 1 },
+            { code: 'M1', description: 'Substituting result from part (a) and applying limits $0$ to $\\frac{\\pi}{4}$', marks: 1 },
+            { code: 'A1', description: '$\\frac{\\pi^2}{32} - \\frac{1}{4}$ (or $\\frac{\\pi^2 - 8}{32}$)', marks: 1 },
+          ],
+          totalMarks: 4,
+          notes: 'Exact value required. Decimals score A0.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'ib-math-aa-func-002',
+    code: 'N23-VAR/MAA/SP1/TZ0/Q04',
+    subject: 'Math AA',
+    level: 'SL',
+    topic: 'Topic 2: Functions',
+    subtopic: '2.5 Composite & Inverse Functions',
+    paper: 'Paper 1',
+    difficulty: 'Medium',
+    year: 2023,
+    session: 'Nov',
+    calculatorAllowed: false,
+    isAiRecommended: true,
+    recommendationReason: 'SL/HL 공통 핵심 문항 (합성함수 정의역 및 역함수 조건)',
+    totalMarks: 6,
+    context: 'The functions $f$ and $g$ are defined by $f(x) = \\ln(2x - 3)$ for $x > \\frac{3}{2}$ and $g(x) = \\frac{5}{x+1}$ for $x > 0$.',
+    parts: [
+      {
+        partLabel: '(a)',
+        prompt: 'Find an expression for $f^{-1}(x)$ and state its domain.',
+        marks: 3,
+        markscheme: {
+          steps: [
+            { code: 'M1', description: 'Interchanging $x$ and $y$ or solving for $x$: $x = \\ln(2y - 3) \\implies e^x = 2y - 3$', marks: 1 },
+            { code: 'A1', description: '$f^{-1}(x) = \\frac{e^x + 3}{2}$', marks: 1 },
+            { code: 'A1', description: 'Domain: $x \\in \\mathbb{R}$', marks: 1 },
+          ],
+          totalMarks: 3,
+        },
+      },
+      {
+        partLabel: '(b)',
+        prompt: 'Solve the equation $(f \\circ g)(x) = 0$.',
+        marks: 3,
+        markscheme: {
+          steps: [
+            { code: 'M1', description: 'Setting up composite equation: $\\ln\\left(2\\left(\\frac{5}{x+1}\\right) - 3\\right) = 0$', marks: 1 },
+            { code: 'A1', description: '$\\frac{10}{x+1} - 3 = 1 \\implies \\frac{10}{x+1} = 4$', marks: 1 },
+            { code: 'A1', description: '$x = \\frac{3}{2}$', marks: 1 },
+          ],
+          totalMarks: 3,
+        },
+      },
+    ],
+  },
+  {
+    id: 'ib-math-aa-cplx-003',
+    code: 'M24-VAR/MAA/HP2/TZ1/Q06',
+    subject: 'Math AA',
+    level: 'HL',
+    topic: 'Topic 1: Number & Algebra',
+    subtopic: '1.13 De Moivre\'s Theorem & Roots of Unity',
+    paper: 'Paper 2',
+    difficulty: 'Hard',
+    year: 2024,
+    session: 'May',
+    calculatorAllowed: true,
+    isAiRecommended: false,
+    totalMarks: 8,
+    context: 'Consider the complex equation $z^4 = -8 + 8\\sqrt{3}i$.',
+    parts: [
+      {
+        partLabel: '(a)',
+        prompt: 'Express $-8 + 8\\sqrt{3}i$ in modulus-argument form $r(\\cos\\theta + i\\sin\\theta)$ where $r > 0$ and $-\\pi < \\theta \\le \\pi$.',
+        marks: 3,
+        markscheme: {
+          steps: [
+            { code: 'A1', description: '$r = \\sqrt{(-8)^2 + (8\\sqrt{3})^2} = \\sqrt{64 + 192} = 16$', marks: 1 },
+            { code: 'M1', description: '$\\arg(z) = \\pi - \\arctan(\\sqrt{3}) = \\pi - \\frac{\\pi}{3}$', marks: 1 },
+            { code: 'A1', description: '$16\\left(\\cos\\frac{2\\pi}{3} + i\\sin\\frac{2\\pi}{3}\\right)$ or $16e^{i\\frac{2\\pi}{3}}$', marks: 1 },
+          ],
+          totalMarks: 3,
+        },
+      },
+      {
+        partLabel: '(b)',
+        prompt: 'Hence, find the four distinct roots of the equation in Cartesian form $a + bi$.',
+        marks: 5,
+        markscheme: {
+          steps: [
+            { code: 'M1', description: 'Applying de Moivre\'s theorem: $z_k = 16^{1/4} e^{i\\left(\\frac{2\\pi/3 + 2k\\pi}{4}\\right)} = 2 e^{i\\left(\\frac{\\pi}{6} + \\frac{k\\pi}{2}\\right)}$ for $k=0, 1, 2, 3$', marks: 2 },
+            { code: 'A1', description: '$k=0: 2(\\cos\\frac{\\pi}{6} + i\\sin\\frac{\\pi}{6}) = \\sqrt{3} + i$', marks: 1 },
+            { code: 'A1', description: '$k=1: -1 + \\sqrt{3}i$', marks: 1 },
+            { code: 'A1', description: '$k=2: -\\sqrt{3} - i$ and $k=3: 1 - \\sqrt{3}i$', marks: 1 },
+          ],
+          totalMarks: 5,
+        },
+      },
+    ],
+  },
+  {
+    id: 'ib-math-aa-prob-004',
+    code: 'M23-VAR/MAA/SP2/TZ2/Q03',
+    subject: 'Math AA',
+    level: 'SL',
+    topic: 'Topic 4: Statistics & Probability',
+    subtopic: '4.8 Normal Distribution',
+    paper: 'Paper 2',
+    difficulty: 'Easy',
+    year: 2023,
+    session: 'May',
+    calculatorAllowed: true,
+    isAiRecommended: true,
+    recommendationReason: 'Paper 2 계산기 활용 필수 기본 점수 확보 문항 (GDC 누적분포 계산)',
+    totalMarks: 5,
+    context: 'The weights of apples in an orchard are normally distributed with a mean of $\\mu = 180\\text{ g}$ and a standard deviation of $\\sigma = 24\\text{ g}$.',
+    parts: [
+      {
+        partLabel: '(a)',
+        prompt: 'Find the probability that a randomly chosen apple weighs between $160\\text{ g}$ and $210\\text{ g}$.',
+        marks: 2,
+        markscheme: {
+          steps: [
+            { code: 'M1', description: 'Setting up $P(160 < X < 210)$ with normal parameters $\\mu=180, \\sigma=24$', marks: 1 },
+            { code: 'A1', description: '$0.692$ (3 significant figures)', marks: 1 },
+          ],
+          totalMarks: 2,
+        },
+      },
+      {
+        partLabel: '(b)',
+        prompt: 'Apples weighing more than $w\\text{ g}$ are classified as "Premium". Given that $15\\%$ of the apples are classified as "Premium", find the value of $w$.',
+        marks: 3,
+        markscheme: {
+          steps: [
+            { code: 'M1', description: '$P(X > w) = 0.15 \\implies P(X \\le w) = 0.85$', marks: 1 },
+            { code: 'M1', description: 'Inverse normal: $z = 1.0364...$', marks: 1 },
+            { code: 'A1', description: '$w = 180 + 1.0364(24) = 205\\text{ g}$ (or $204.9\\text{ g}$)', marks: 1 },
+          ],
+          totalMarks: 3,
+        },
+      },
+    ],
+  },
+];
